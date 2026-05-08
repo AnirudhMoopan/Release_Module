@@ -1,0 +1,45 @@
+# ── Build Outputs ──
+bin/
+obj/
+dist/
+dist-ssr/
+publish/
+out/
+
+# ── Secrets / Config ──
+appsettings.json
+appsettings.*.json
+!appsettings.example.json
+*.user
+*.env
+.env
+.env.*
+
+# ── IDE ──
+.vs/
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ── Node ──
+node_modules/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+*.local
+
+# ── OS ──
+.DS_Store
+Thumbs.db
+
+# ── Documentation (company-specific) ──
+*.tex
+*.doc
+*.docx
