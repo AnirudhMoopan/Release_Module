@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a0a0f" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="description" content="Release Management & Tracking Dashboard" />
+    <title>Release Module</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        // Force dark mode as the default for all new sessions
+        (function(){
+            var isLogin = location.pathname.toLowerCase().indexOf('/login') !== -1 || location.pathname === '/';
+            if(isLogin){
+                document.documentElement.classList.remove('light');
+                sessionStorage.setItem('app-theme', 'dark');
+            } else {
+                var t = sessionStorage.getItem('app-theme');
+                if(!t) {
+                    sessionStorage.setItem('app-theme', 'dark');
+                    t = 'dark';
+                }
+                if(t === 'light') document.documentElement.classList.add('light');
+            }
+        })();
+    </script>
+  </head>
+  <body class="antialiased min-h-screen flex flex-col">
+    <div id="root" class="flex-grow flex flex-col"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

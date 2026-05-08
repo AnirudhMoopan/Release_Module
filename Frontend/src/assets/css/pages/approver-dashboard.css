@@ -1,0 +1,60 @@
+/* ============================================
+   APPROVER DASHBOARD PAGE STYLES
+   ============================================ */
+
+/* Approve Button */
+.btn-approve {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.8), rgba(4, 120, 87, 0.8));
+    border: 1px solid rgba(16, 185, 129, 0.5);
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+.btn-approve:hover {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 1), rgba(4, 120, 87, 1));
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Reject Button */
+.btn-reject {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.8), rgba(185, 28, 28, 0.8));
+    border: 1px solid rgba(239, 68, 68, 0.5);
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.2);
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+.btn-reject:hover {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 1), rgba(185, 28, 28, 1));
+    box-shadow: 0 0 30px rgba(239, 68, 68, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Details Button */
+.btn-details {
+    border: 1px solid rgba(0, 132, 255, 0.4);
+    color: rgba(96, 165, 250, 1);
+    background: transparent;
+    transition: all 0.3s ease;
+}
+.btn-details:hover {
+    border-color: rgba(59, 130, 246, 1);
+    color: rgba(147, 197, 253, 1);
+    background: rgba(59, 130, 246, 0.1);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
+}
+
+/* Light Mode Overrides for Approver Dashboard */
+html.light .btn-details {
+    color: rgba(37, 99, 235, 1); /* text-blue-600 */
+    border-color: rgba(37, 99, 235, 0.4);
+}
+html.light .btn-details:hover {
+    color: rgba(29, 78, 216, 1); /* text-blue-700 */
+    border-color: rgba(37, 99, 235, 1);
+    background: rgba(37, 99, 235, 0.05);
+}

@@ -1,0 +1,214 @@
+/* Dashboard Specific Styles */
+
+/* Neon Accents */
+.text-shadow-emerald { text-shadow: 0 0 10px rgba(16, 185, 129, 0.5); }
+.animate-spin-slow { animation: spin 8s linear infinite; }
+
+/* Rejected Blinking Badge */
+.rejected-blink {
+    animation: rejected-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes rejected-pulse {
+    0%, 100% {
+        opacity: 1;
+        box-shadow: 0 0 15px rgba(239, 68, 68, 0.3);
+    }
+    50% {
+        opacity: 0.5;
+        box-shadow: 0 0 30px rgba(239, 68, 68, 0.6);
+    }
+}
+
+/* Stepper Node Styles */
+.step-node {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    transition: all 0.5s ease-in-out;
+    position: relative;
+}
+.step-node.completed {
+    background-color: #0084FF;
+    box-shadow: 0 0 20px rgba(0, 132, 255, 0.6);
+    color: white;
+    border: 2px solid transparent;
+}
+.step-node.current {
+    background-color: rgba(0, 132, 255, 0.2);
+    border: 2px solid #0084FF;
+    box-shadow: inset 0 0 10px rgba(0, 132, 255, 0.5), 0 0 20px rgba(0, 132, 255, 0.4);
+    color: #0084FF;
+    animation: pulse-ring 2s infinite;
+}
+.step-node.pending {
+    background-color: var(--step-pending-bg, #111827);
+    border: 2px solid var(--step-pending-border, rgba(255, 255, 255, 0.2));
+    color: var(--step-pending-text, rgba(255, 255, 255, 0.4));
+}
+
+@keyframes pulse-ring {
+    0% { box-shadow: 0 0 0 0 rgba(0, 132, 255, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(0, 132, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 132, 255, 0); }
+}
+
+/* ============================================
+   LIGHT MODE — Dashboard Overrides
+   ============================================ */
+
+/* Pending step circles: light frosted glass look */
+html.light .step-node.pending {
+    --step-pending-bg: #ffffff;
+    --step-pending-border: rgba(0, 132, 255, 0.25);
+    --step-pending-text: #0084FF;
+    box-shadow: 0 4px 10px rgba(0, 132, 255, 0.08);
+}
+
+/* Completed step circles: softer blue glow */
+html.light .step-node.completed {
+    box-shadow: 0 0 12px rgba(0, 132, 255, 0.3) !important;
+}
+
+/* Current step circle: softer glow */
+html.light .step-node.current {
+    background-color: rgba(0, 132, 255, 0.1) !important;
+    box-shadow: inset 0 0 8px rgba(0, 132, 255, 0.2), 0 0 12px rgba(0, 132, 255, 0.2) !important;
+}
+
+/* Progress track background */
+html.light .bg-white\/10 {
+    background-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Active glow line: softer shadow */
+html.light .shadow-\[0_0_15px_\#0084FF\] {
+    box-shadow: 0 0 8px rgba(0, 132, 255, 0.3) !important;
+}
+
+/* Demo control panel */
+html.light .border-\[\#0084FF\]\/30 {
+    border-color: rgba(0, 132, 255, 0.15) !important;
+}
+
+html.light .bg-emerald-900\/40 {
+    background-color: rgba(16, 185, 129, 0.1) !important;
+}
+
+/* ── Revert Stepper — Light Mode ── */
+/* Pending circles: white background instead of dark navy */
+html.light .bg-gray-900 {
+    background-color: #ffffff !important;
+}
+
+/* Completed revert circles: softer red glow */
+html.light .shadow-\[0_0_20px_rgba\(239\,68\,68\,0\.6\)\] {
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.25) !important;
+}
+
+/* Current revert circle: softer pulse glow */
+html.light .shadow-\[0_0_20px_rgba\(239\,68\,68\,0\.5\)\] {
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.2) !important;
+}
+
+/* Revert progress bar glow: softer */
+html.light .shadow-\[0_0_15px_\#ef4444\] {
+    box-shadow: 0 0 6px rgba(239, 68, 68, 0.25) !important;
+}
+
+/* Pending number text visibility fix */
+html.light .text-gray-500 {
+    color: #94a3b8 !important;
+}
+
+/* Modal Toggle Switch */
+.modal-toggle {
+    display: inline-flex;
+    position: relative;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 4px;
+    gap: 0;
+}
+
+.modal-toggle-slider {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: calc(50% - 4px);
+    height: calc(100% - 8px);
+    background: linear-gradient(135deg, #0084FF, #0062CC);
+    border-radius: 10px;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 20px rgba(0, 132, 255, 0.4);
+    z-index: 0;
+}
+
+.modal-toggle-slider.right {
+    transform: translateX(100%);
+}
+
+.modal-toggle-btn {
+    position: relative;
+    z-index: 1;
+    padding: 12px 28px;
+    border: none;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 0.82rem;
+    font-weight: 700;
+    font-family: inherit;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    border-radius: 10px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.modal-toggle-btn.active {
+    color: #fff;
+}
+
+.modal-toggle-btn:not(.active):hover {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.modal-toggle-btn svg {
+    transition: transform 0.3s ease;
+}
+
+.modal-toggle-btn.active svg {
+    transform: scale(1.15);
+}
+
+.modal-toggle-sm .modal-toggle-btn {
+    padding: 10px 24px;
+    font-size: 0.78rem;
+}
+
+/* Light mode modal toggle */
+html.light .modal-toggle {
+    background: rgba(0, 0, 0, 0.04);
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+html.light .modal-toggle-btn {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+html.light .modal-toggle-btn.active {
+    color: #ffffff;
+}
+
+html.light .modal-toggle-slider {
+    box-shadow: 0 0 10px rgba(0, 132, 255, 0.2);
+}
